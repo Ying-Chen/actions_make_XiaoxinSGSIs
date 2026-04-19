@@ -112,7 +112,7 @@ jobs:
        - name: Upload SGSI to Release
          uses: softprops/action-gh-release@v2
          with:
-           files: SGSI-build-tool/10/*.img
+           files: SGSI-build-tool/10/SGSI/*.img
            name: ${{ steps.var.outputs.date }} XiaoxinSGSIs For Q
            tag_name: ${{ github.run_id }}
            body: XiaoxinSGSIs-${{ steps.var.outputs.pack_sgsi }} built by github actions

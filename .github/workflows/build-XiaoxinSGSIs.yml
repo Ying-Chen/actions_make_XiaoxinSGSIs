@@ -1,8 +1,7 @@
 name: build_XiaoxinSGSIs
 
 on:
-  watch:
-    types: [started]
+  workflow_dispatch:
     
 jobs:
   build:

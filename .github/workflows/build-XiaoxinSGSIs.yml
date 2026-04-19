@@ -108,18 +108,11 @@ jobs:
            mv bin/mke2fs bin/e2fsdroid bin/mkuserimg_mke2fs.sh SGSI-build-tool/10/bin/
            cd SGSI-build-tool/10
            sudo bash make.sh
-           
-       - name: Zip Patch  
-         run: |
-           zip -r Patch1.zip Patch/Patch1/*
-           zip -r Patch2.zip Patch/Patch2/*
-           zip -r Patch3.zip Patch/Patch3/*
-           sudo mv Patch1.zip Patch2.zip Patch3.zip SGSI-build-tool/10/SGSI/
 
        - name: Upload SGSI to Release
          uses: softprops/action-gh-release@v2
          with:
-           files: SGSI-build-tool/10/SGSI/system.img
+           files: SGSI-build-tool/10/SGSI/*.img
            name: ${{ steps.var.outputs.date }} XiaoxinSGSIs For Q
            tag_name: ${{ github.run_id }}
            body: XiaoxinSGSIs-${{ steps.var.outputs.pack_sgsi }} built by github actions

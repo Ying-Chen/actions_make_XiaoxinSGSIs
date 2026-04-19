@@ -109,10 +109,14 @@ jobs:
            cd SGSI-build-tool/10
            sudo bash make.sh
 
+       - name: Compress SGSI
+         run: |
+           tar -c --zstd -vf system.tar.zst --level=22 SGSI-build-tool/10/SGSI/*.img
+
        - name: Upload SGSI to Release
          uses: softprops/action-gh-release@v2
          with:
-           files: SGSI-build-tool/10/SGSI/*.img
+           files: system.tar.zst
            name: ${{ steps.var.outputs.date }} XiaoxinSGSIs For Q
            tag_name: ${{ github.run_id }}
            body: XiaoxinSGSIs-${{ steps.var.outputs.pack_sgsi }} built by github actions
